@@ -1,9 +1,11 @@
 class Author
 
+  @@post_count = 0
+
   attr_accessor :title, :posts, :name
 
-  def initialize(title)
-    @title = title
+  def initialize(name)
+    @name = name
     @posts = []
   end
 
@@ -28,6 +30,8 @@ class Author
     @@post_count
   end
 
-
+  def all
+    @@all
+  end
 
 end
