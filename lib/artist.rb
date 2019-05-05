@@ -1,7 +1,7 @@
 class Artist
   attr_accessor :name, :songs
   
-  @@counter = 0
+  @@counter = 0   #need to start at zero, needs to ve available to other methods- @@
   @@songs = []
   
   def initialize(name)
@@ -12,20 +12,20 @@ class Artist
     @@songs
   end
 
-  def add_song(songs)
+  def add_song(songs)   
    @@songs << songs
-   songs.artist = self
-   @@counter += 1
+   songs.artist = self   #assocaites song with artist by telling the song it belongs to tht artist
+   @@counter += 1         #everytime a song is added to @@songs array add 1
   end
   
   def add_song_by_name(song)
-  new_song = Song.new(song)
-  @@songs << new_song
-  new_song.artist = self
-  @@counter += 1
+  new_song = Song.new(song)   #creates new song with (song) calling the Song class
+  @@songs << new_song         #push it into the array
+  new_song.artist = self        #associate the new song with the artist (attr acces or Song)
+  @@counter += 1                #add 1 to counter every time new_song is added to songs array
   end
   
-  def self.song_count
+  def self.song_count     #class method - self
     @@counter
   end
 end
