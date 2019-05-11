@@ -18,8 +18,7 @@ class Artist
   
   def add_song_by_name(name)
     song = Song.new(name)
-    @songs << song 
-    song.artist = self 
+    add_song(song)
   end
   
   def songs 
@@ -27,9 +26,7 @@ class Artist
   end
   
   def self.song_count
-    count = 0 
-    @@all.each{|artist| count += artist.songs.length}
-    count 
+    Song.all.length 
   end
   
 end

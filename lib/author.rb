@@ -21,14 +21,11 @@ class Author
   
   def add_post_by_title(post)
     post = Post.new(post)
-    @posts << post 
-    post.author = self 
+    add_post(post)
   end
   
   def self.post_count
-    count = 0 
-    @@all.each{|author| count += author.posts.length}
-    count 
+    Post.all.length 
   end
 
 end
